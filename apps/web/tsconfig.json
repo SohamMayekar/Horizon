@@ -30,6 +30,5 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "__create"]
-
+  "exclude": ["node_modules", "**/__create/**", "__create"]
 }
