@@ -1,3 +1,5 @@
+"use client";
+
 import * as helpers from './helpers';
 
 export default function Page() {

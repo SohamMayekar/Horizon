@@ -1,3 +1,5 @@
+"use client";
+
 export default function Page() {
   const handleClick = () => {
     throw new Error('click handler exploded');
