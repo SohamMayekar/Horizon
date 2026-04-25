@@ -89,7 +89,7 @@ export default function BlogPage() {
             className="text-4xl md:text-[52px] font-bold tracking-tight leading-[1.1] text-gray-900 mb-6"
           >
             Insights for a{" "}
-            <span className="font-serif italic text-orange-500">
+            <span className="font-serif italic font-light text-orange-500">
               smarter
             </span>{" "}
             financial life

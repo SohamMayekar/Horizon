@@ -219,7 +219,7 @@ export default function LandingPage() {
               <h3 className="text-3xl md:text-[36px] font-bold tracking-tight leading-[1.2] text-gray-900 mb-5">
                 Drag a slider.
                 <br />
-                <em className="font-serif italic font-light text-blue-500 not-italic">
+                <em className="font-serif italic font-light text-blue-500">
                   Watch 60 years recalculate.
                 </em>
               </h3>

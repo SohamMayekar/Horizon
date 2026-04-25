@@ -56,27 +56,21 @@ const VALUES = [
 const TEAM = [
   {
     name: "Soham Mayekar",
-    role: "Founder & CEO",
+    role: "Core Team",
     initials: "SM",
     gradient: "from-orange-400 to-amber-500",
   },
   {
-    name: "Arjun Patel",
-    role: "Head of Engineering",
-    initials: "AP",
+    name: "Devesh Kushe",
+    role: "Core Team",
+    initials: "DK",
     gradient: "from-blue-400 to-indigo-500",
   },
   {
-    name: "Meera Iyer",
-    role: "Design Lead",
-    initials: "MI",
+    name: "Rudraksha Patil",
+    role: "Core Team",
+    initials: "RP",
     gradient: "from-purple-400 to-violet-500",
-  },
-  {
-    name: "Karan Desai",
-    role: "Data & Finance",
-    initials: "KD",
-    gradient: "from-emerald-400 to-teal-500",
   },
 ];
 
@@ -101,7 +95,7 @@ export default function AboutPage() {
             We&apos;re building the financial
             <br />
             planning tool we{" "}
-            <span className="font-serif italic text-orange-500">
+            <span className="font-serif italic font-light text-orange-500">
               wished existed
             </span>
           </motion.h1>
@@ -122,28 +116,31 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp(0)}>
               <h2 className="text-3xl md:text-[38px] font-bold tracking-tight leading-[1.15] text-gray-900 mb-6">
-                The problem was{" "}
-                <span className="font-serif italic text-orange-500">
-                  personal
+                Our problem{" "}
+                <span className="font-serif italic font-light text-orange-500">
+                  statement
                 </span>
               </h2>
               <div className="flex flex-col gap-5 text-[16px] text-gray-500 leading-relaxed">
                 <p>
-                  In 2024, our founder Soham sat down to plan his financial
-                  future. He opened Excel, Googled &quot;SIP calculator India,&quot;
-                  and found dozens of single-purpose tools — none of which
-                  talked to each other.
+                  Horizon is built around a simple but technically demanding
+                  question: what happens when life goals are placed on a real
+                  age-indexed timeline, and every decision changes the money
+                  available for every decision after it?
                 </p>
                 <p>
-                  Want to see how buying a house in 2030 affects your
-                  retirement corpus in 2060? Good luck doing that with three
-                  separate calculators and a spreadsheet.
+                  A standard calculator can compound savings in isolation. Our
+                  challenge is forward simulation: each milestone drawdown,
+                  whether an apartment, studio, education fund, or retirement
+                  event, reduces the base from which all future compounding
+                  continues.
                 </p>
                 <p>
-                  That weekend, Horizon was born — a single canvas where
-                  every financial decision connects to every other, where you
-                  can drag a slider and watch 60 years of your life recompute
-                  in real time.
+                  The product turns that model into an interactive canvas with
+                  drag-to-place milestone markers, real-time what-if
+                  recalculation, contextual shortfall signals, and animated
+                  zoom so people can understand the exact parameter change
+                  needed without judgment or financial guesswork.
                 </p>
               </div>
             </motion.div>
@@ -153,20 +150,24 @@ export default function AboutPage() {
                   <div className="flex items-start gap-4">
                     <Target className="text-orange-500 flex-shrink-0 mt-1" size={24} />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Our Mission</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">Real-Life Scenario</h4>
                       <p className="text-[15px] text-gray-500 leading-relaxed">
-                        Make financial planning accessible, visual, and private
-                        for every Indian — regardless of their financial literacy level.
+                        Aditya, 28, drags an apartment milestone to age 32 and
+                        a studio milestone to age 35. His Rs. 25,000 monthly
+                        savings projection shows an amber shortfall; at Rs.
+                        32,000, the curve rises and the marker resolves green.
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Eye className="text-orange-500 flex-shrink-0 mt-1" size={24} />
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Our Vision</h4>
+                      <h4 className="font-semibold text-gray-900 mb-1">Core Experience</h4>
                       <p className="text-[15px] text-gray-500 leading-relaxed">
-                        A world where no one makes a major financial decision
-                        without first seeing its long-term impact on their life.
+                        The timeline supports age 20-80 planning, category
+                        markers, sequential capital drawdowns, what-if savings
+                        controls, net-worth baselines, multi-scale zoom, and
+                        optional inflation-adjusted assumptions.
                       </p>
                     </div>
                   </div>
@@ -183,7 +184,7 @@ export default function AboutPage() {
           <motion.div {...fadeUp(0)} className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-3xl md:text-[38px] font-bold tracking-tight leading-[1.15] text-gray-900 mb-4">
               What we{" "}
-              <span className="font-serif italic text-orange-500">
+              <span className="font-serif italic font-light text-orange-500">
                 believe in
               </span>
             </h2>
@@ -223,14 +224,14 @@ export default function AboutPage() {
           <motion.div {...fadeUp(0)} className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-3xl md:text-[38px] font-bold tracking-tight leading-[1.15] text-gray-900 mb-4">
               The{" "}
-              <span className="font-serif italic text-orange-500">team</span>
+              <span className="font-serif italic font-light text-orange-500">team</span>
             </h2>
             <p className="text-lg text-gray-500">
               A small, focused team obsessed with building the best financial
               planning experience.
             </p>
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {TEAM.map((member, i) => (
               <motion.div
                 key={member.name}
@@ -258,7 +259,7 @@ export default function AboutPage() {
           <motion.div {...fadeUp(0)}>
             <h2 className="text-3xl md:text-[38px] font-bold tracking-tight leading-[1.15] text-gray-900 mb-4">
               Get in{" "}
-              <span className="font-serif italic text-orange-500">touch</span>
+              <span className="font-serif italic font-light text-orange-500">touch</span>
             </h2>
             <p className="text-lg text-gray-500 mb-10">
               Have questions, partnership ideas, or just want to say hello?

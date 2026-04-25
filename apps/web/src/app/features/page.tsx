@@ -109,7 +109,7 @@ export default function FeaturesPage() {
             className="text-4xl md:text-[52px] font-bold tracking-tight leading-[1.1] text-gray-900 mb-6"
           >
             One canvas for your{" "}
-            <span className="font-serif italic text-orange-500">
+            <span className="font-serif italic font-light text-orange-500">
               entire financial life
             </span>
           </motion.h1>
@@ -228,7 +228,7 @@ export default function FeaturesPage() {
           <motion.div {...fadeUp(0)} className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-3xl md:text-[38px] font-bold tracking-tight leading-[1.15] text-gray-900 mb-4">
               And{" "}
-              <span className="font-serif italic text-orange-500">
+              <span className="font-serif italic font-light text-orange-500">
                 so much more
               </span>
             </h2>

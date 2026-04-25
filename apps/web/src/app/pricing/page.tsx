@@ -132,7 +132,7 @@ export default function PricingPage() {
             className="text-4xl md:text-[52px] font-bold tracking-tight leading-[1.1] text-gray-900 mb-6"
           >
             Simple pricing,{" "}
-            <span className="font-serif italic text-orange-500">
+            <span className="font-serif italic font-light text-orange-500">
               no surprises
             </span>
           </motion.h1>
@@ -248,7 +248,7 @@ export default function PricingPage() {
           <motion.div {...fadeUp(0)} className="text-center mb-14">
             <h2 className="text-3xl md:text-[38px] font-bold tracking-tight leading-[1.15] text-gray-900 mb-4">
               Frequently asked{" "}
-              <span className="font-serif italic text-orange-500">
+              <span className="font-serif italic font-light text-orange-500">
                 questions
               </span>
             </h2>
