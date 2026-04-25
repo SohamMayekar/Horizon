@@ -85,7 +85,10 @@ export default function InsightsPanel() {
   const savingsGap = Math.max(0, requiredSavings - monthlySavings);
 
   return (
-    <div className="bg-[#0A0C14] rounded-2xl border border-[#1C2030] overflow-hidden">
+    <div
+      className="rounded-2xl border border-[#1C2030] overflow-hidden"
+      style={{ background: "var(--app-card-bg, #0A0C14)" }}
+    >
       {/* Header */}
       <div className="px-6 py-5 border-b border-[#1C2030]">
         <div className="flex items-center justify-between">
@@ -205,8 +208,6 @@ export default function InsightsPanel() {
   );
 }
 
-// ─── Individual insight card ────────────────────────────────────────────────────
-
 function MilestoneInsightCard({ insight, index }) {
   const {
     title,
@@ -263,8 +264,8 @@ function MilestoneInsightCard({ insight, index }) {
       }}
       className="rounded-xl overflow-hidden"
       style={{
-        background: "#0E1118",
-        border: `1px solid #1C2030`,
+        background: "var(--app-card-bg-2, #0E1118)",
+        border: `1px solid var(--app-border, #1C2030)`,
       }}
     >
       {/* Top accent */}
@@ -333,7 +334,6 @@ function MilestoneInsightCard({ insight, index }) {
             </div>
           )}
 
-          {/* Action insight */}
           {!onTrack && additionalMonthlySavings > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 4 }}

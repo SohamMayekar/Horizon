@@ -25,7 +25,10 @@ export default function ControlsPanel() {
   const [tab, setTab] = useState("profile");
 
   return (
-    <div className="bg-[#0A0C14] rounded-2xl border border-[#1C2030] flex flex-col overflow-hidden">
+    <div
+      className="rounded-2xl border border-[#1C2030] flex flex-col overflow-hidden"
+      style={{ background: "var(--app-card-bg, #0A0C14)" }}
+    >
       {/* Header */}
       <div className="px-6 pt-5 pb-4 border-b border-[#1C2030]">
         <p className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-0.5">
@@ -45,10 +48,15 @@ export default function ControlsPanel() {
             onClick={() => setTab(t.value)}
             className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold transition-all"
             style={{
-              background: tab === t.value ? "#1A1F2E" : "transparent",
-              color: tab === t.value ? "#F1F5F9" : "#475569",
+              background:
+                tab === t.value
+                  ? "var(--app-tab-active, #1A1F2E)"
+                  : "transparent",
+              color: tab === t.value ? "var(--app-text-primary, #F1F5F9)" : "var(--app-text-muted, #475569)",
               border:
-                tab === t.value ? "1px solid #252B40" : "1px solid transparent",
+                tab === t.value
+                  ? "1px solid var(--app-tab-active-border, #252B40)"
+                  : "1px solid transparent",
             }}
           >
             <t.Icon size={11} /> {t.label}
@@ -205,8 +213,11 @@ function EventsTab() {
     });
   };
 
-  const inp =
-    "w-full bg-[#060810] border border-[#1C2030] rounded-xl px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-blue-500/50 transition-all";
+  const inputStyle = {
+    background: "var(--app-input-bg, #060810)",
+    border: "1px solid var(--app-border, #1C2030)",
+    color: "var(--app-text-primary, #F1F5F9)",
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -219,10 +230,14 @@ function EventsTab() {
           events.map((ev) => (
             <div
               key={ev.id}
-              className="flex items-center justify-between gap-3 bg-[#060810] border border-[#1C2030] rounded-xl px-4 py-3"
+              className="flex items-center justify-between gap-3 rounded-xl px-4 py-3 border border-[#1C2030]"
+              style={{ background: "var(--app-input-bg, #060810)" }}
             >
               <div className="flex items-center gap-3 min-w-0 flex-1">
-                <span className="text-[10px] font-bold text-slate-500 bg-[#1C2030] rounded-full px-2 py-0.5 flex-shrink-0">
+                <span
+                  className="text-[10px] font-bold rounded-full px-2 py-0.5 flex-shrink-0 text-slate-500"
+                  style={{ background: "var(--app-border, #1C2030)" }}
+                >
                   Age {ev.age}
                 </span>
                 <span className="text-sm font-medium text-slate-200 truncate flex-1">
@@ -246,7 +261,10 @@ function EventsTab() {
         )}
       </div>
 
-      <div className="bg-[#060810] border border-[#1C2030] rounded-2xl p-4 flex flex-col gap-3">
+      <div
+        className="rounded-2xl p-4 flex flex-col gap-3 border border-[#1C2030]"
+        style={{ background: "var(--app-input-bg, #060810)" }}
+      >
         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
           New event
         </span>
@@ -255,7 +273,8 @@ function EventsTab() {
           placeholder="Label (e.g. Bonus, Medical expense)"
           value={draft.label}
           onChange={(e) => setDraft({ ...draft, label: e.target.value })}
-          className={inp}
+          className="w-full rounded-xl px-3 py-2.5 text-sm placeholder:text-slate-600 focus:outline-none transition-all"
+          style={inputStyle}
         />
         <div className="grid grid-cols-2 gap-2">
           <input
@@ -265,7 +284,8 @@ function EventsTab() {
             min={AGE_MIN}
             max={AGE_MAX}
             onChange={(e) => setDraft({ ...draft, age: e.target.value })}
-            className={inp}
+            className="w-full rounded-xl px-3 py-2.5 text-sm placeholder:text-slate-600 focus:outline-none transition-all"
+            style={inputStyle}
           />
           <div className="relative">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm pointer-events-none select-none">
@@ -276,12 +296,16 @@ function EventsTab() {
               placeholder="Amount (₹)"
               value={draft.amount}
               onChange={(e) => setDraft({ ...draft, amount: e.target.value })}
-              className={`${inp} pl-7`}
+              className="w-full rounded-xl pl-7 pr-3 py-2.5 text-sm placeholder:text-slate-600 focus:outline-none transition-all"
+              style={inputStyle}
             />
           </div>
         </div>
         <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-1 p-0.5 bg-[#0E1118] border border-[#1C2030] rounded-xl">
+          <div
+            className="flex items-center gap-1 p-0.5 rounded-xl border border-[#1C2030]"
+            style={{ background: "var(--app-card-bg, #0E1118)" }}
+          >
             {["expense", "income"].map((type) => {
               const active = draft.type === type;
               const clr = type === "income" ? "#10B981" : "#F59E0B";
@@ -293,7 +317,7 @@ function EventsTab() {
                   style={{
                     background: active ? `${clr}18` : "transparent",
                     border: `1px solid ${active ? clr + "40" : "transparent"}`,
-                    color: active ? clr : "#475569",
+                    color: active ? clr : "var(--app-text-muted, #475569)",
                   }}
                 >
                   {type}

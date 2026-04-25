@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  /* ── Color System (from Figma) ── */
+  /* ── Color System ── */
   --color-bg: #FFFFFF;
   --color-bg-alt: #FAFAFA;
   --color-bg-dark: #0A0A0A;
@@ -122,62 +122,34 @@
 
 /* ── Animations ── */
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(249,115,22,0.2); }
   50% { box-shadow: 0 0 40px rgba(249,115,22,0.4); }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+.animate-fade-in    { animation: fade-in 0.5s ease-out forwards; }
+.animate-slide-up   { animation: slide-up 0.8s cubic-bezier(0.22,0.61,0.36,1) forwards; }
+.animate-float      { animation: float 6s ease-in-out infinite; }
 
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }
@@ -185,3 +157,72 @@
 .stagger-4 { animation-delay: 0.4s; }
 .stagger-5 { animation-delay: 0.5s; }
 .stagger-6 { animation-delay: 0.6s; }
+
+/* ══════════════════════════════════════════════════════════════
+   LIGHT THEME — comprehensive overrides for all /app feature
+   components that use hardcoded dark Tailwind classes.
+   Applied when <html data-theme="light"> is set.
+══════════════════════════════════════════════════════════════ */
+
+/* ── Slate text colors → dark ink ── */
+[data-theme="light"] .text-slate-100 { color: #0F172A !important; }
+[data-theme="light"] .text-slate-200 { color: #1E293B !important; }
+[data-theme="light"] .text-slate-300 { color: #334155 !important; }
+[data-theme="light"] .text-slate-400 { color: #475569 !important; }
+[data-theme="light"] .text-slate-500 { color: #6B7280 !important; }
+[data-theme="light"] .text-slate-600 { color: #9CA3AF !important; }
+
+/* ── Card / panel backgrounds ── */
+[data-theme="light"] .bg-\[\#0A0C14\]   { background-color: #FFFFFF !important; }
+[data-theme="light"] .bg-\[\#0E1118\]   { background-color: #F8FAFC !important; }
+[data-theme="light"] .bg-\[\#060810\]   { background-color: #F1F5F9 !important; }
+[data-theme="light"] .bg-\[\#070910\]   { background-color: #F8FAFC !important; }
+[data-theme="light"] .bg-\[\#080A10\]   { background-color: #F8FAFC !important; }
+[data-theme="light"] .bg-\[\#0B0D18\]   { background-color: #FFFFFF !important; }
+[data-theme="light"] .bg-\[\#080A13\]   { background-color: #F8FAFC !important; }
+[data-theme="light"] .bg-\[\#0D0F1A\]\/95 { background-color: rgba(255,255,255,0.97) !important; }
+[data-theme="light"] .bg-\[\#1C2030\]   { background-color: #EFF6FF !important; }
+[data-theme="light"] .bg-\[\#1A1F2E\]   { background-color: #EFF6FF !important; }
+[data-theme="light"] .bg-\[\#252B40\]   { background-color: #DBEAFE !important; }
+[data-theme="light"] .hover\:bg-\[\#252B40\]:hover { background-color: #BFDBFE !important; }
+[data-theme="light"] .hover\:bg-\[\#222840\]:hover { background-color: #DBEAFE !important; }
+[data-theme="light"] .bg-\[\#0E1118\]   { background-color: #F8FAFC !important; }
+
+/* ── Borders ── */
+[data-theme="light"] .border-\[\#1C2030\]  { border-color: #E2E8F0 !important; }
+[data-theme="light"] .border-\[\#1A1F2E\]  { border-color: #CBD5E1 !important; }
+[data-theme="light"] .border-\[\#252B40\]  { border-color: #93C5FD !important; }
+[data-theme="light"] .border-\[\#2A3050\]  { border-color: #93C5FD !important; }
+[data-theme="light"] .divide-\[\#1C2030\] > * + * { border-color: #E2E8F0 !important; }
+
+/* ── Chart viewport background (inline style override via class) ── */
+[data-theme="light"] .timeline-chart-bg { background: #F8FAFC !important; }
+
+/* ── Axis border top ── */
+[data-theme="light"] .axis-border-top { border-top-color: #E2E8F0 !important; }
+
+/* ── SVG gridlines — can't override inline, handled in component ── */
+
+/* ── Hover states on nav links in dark app bar ── */
+[data-theme="light"] .hover\:text-slate-100:hover { color: #0F172A !important; }
+[data-theme="light"] .hover\:text-slate-300:hover { color: #1E293B !important; }
+[data-theme="light"] .hover\:border-\[\#2A3050\]:hover { border-color: #93C5FD !important; }
+
+/* ── White/5, white/10, white/15 transparent bg patterns in app ── */
+[data-theme="light"] .bg-white\/5  { background-color: rgba(0,0,0,0.03) !important; }
+[data-theme="light"] .bg-white\/10 { background-color: rgba(0,0,0,0.05) !important; }
+[data-theme="light"] .bg-white\/\[0\.03\] { background-color: rgba(0,0,0,0.02) !important; }
+[data-theme="light"] .border-white\/\[0\.07\] { border-color: rgba(0,0,0,0.07) !important; }
+[data-theme="light"] .border-white\/\[0\.06\] { border-color: rgba(0,0,0,0.06) !important; }
+[data-theme="light"] .border-white\/10 { border-color: rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .border-white\/15 { border-color: rgba(0,0,0,0.10) !important; }
+
+/* ── Tooltip floating card ── */
+[data-theme="light"] .timeline-tooltip {
+  background: rgba(255,255,255,0.97) !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+  color: #0F172A !important;
+}
+[data-theme="light"] .timeline-tooltip .text-slate-500 { color: #6B7280 !important; }
+[data-theme="light"] .timeline-tooltip .text-slate-100 { color: #0F172A !important; }

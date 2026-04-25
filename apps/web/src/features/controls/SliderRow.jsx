@@ -25,7 +25,7 @@ export default function SliderRow({
 
       <div className="relative h-5 flex items-center">
         {/* Track background */}
-        <div className="absolute inset-x-0 h-[3px] rounded-full bg-[#1C2030]" />
+        <div className="absolute inset-x-0 h-[3px] rounded-full" style={{ background: "var(--app-border, #1C2030)" }} />
         {/* Track fill */}
         <div
           className="absolute left-0 h-[3px] rounded-full"

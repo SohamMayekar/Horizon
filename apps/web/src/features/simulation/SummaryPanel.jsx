@@ -32,7 +32,7 @@ function MetricCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.38, delay, ease: [0.22, 0.61, 0.36, 1] }}
       className={`relative flex flex-col gap-0 overflow-hidden rounded-2xl border border-[#1C2030] ${className}`}
-      style={{ background: "#0A0C14" }}
+      style={{ background: "var(--app-card-bg, #0A0C14)" }}
     >
       {/* top glow line */}
       <div

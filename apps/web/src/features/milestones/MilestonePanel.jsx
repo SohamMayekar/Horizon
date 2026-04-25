@@ -14,13 +14,15 @@ export default function MilestonePanel() {
   const openEdit = useMilestoneStore((s) => s.openEdit);
   const currentAge = useSimulationStore((s) => s.currentAge);
 
-  // Sort ascending by age
   const sorted = [...milestones].sort((a, b) => a.age - b.age);
   const past = sorted.filter((m) => m.age < currentAge);
   const future = sorted.filter((m) => m.age >= currentAge);
 
   return (
-    <div className="bg-[#0A0C14] rounded-2xl border border-[#1C2030] overflow-hidden">
+    <div
+      className="rounded-2xl border border-[#1C2030] overflow-hidden"
+      style={{ background: "var(--app-card-bg, #0A0C14)" }}
+    >
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-[#1C2030]">
         <div className="flex flex-col gap-0.5">
@@ -80,8 +82,6 @@ export default function MilestonePanel() {
   );
 }
 
-// ─── Individual card ──────────────────────────────────────────────────────────
-
 function MilestoneCard({ milestone, onClick, index, past }) {
   const { title, age, cost, category } = milestone;
   const cat = getCat(category);
@@ -99,14 +99,14 @@ function MilestoneCard({ milestone, onClick, index, past }) {
       className="flex flex-col text-left rounded-2xl overflow-hidden flex-shrink-0 group transition-all duration-200"
       style={{
         width: 192,
-        background: "#0E1118",
-        border: `1px solid #1C2030`,
+        background: "var(--app-card-bg-2, #0E1118)",
+        border: `1px solid var(--app-border, #1C2030)`,
         boxShadow: "none",
         cursor: "pointer",
       }}
       whileHover={{
         y: -2,
-        boxShadow: `0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px ${cat.color}30`,
+        boxShadow: `0 8px 32px rgba(0,0,0,0.15), 0 0 0 1px ${cat.color}30`,
       }}
       whileTap={{ scale: 0.98 }}
     >
@@ -158,13 +158,15 @@ function MilestoneCard({ milestone, onClick, index, past }) {
         </div>
 
         {/* Cost */}
-        <div className="pt-2 border-t border-[#1C2030] flex items-center justify-between">
+        <div
+          className="pt-2 flex items-center justify-between border-t border-[#1C2030]"
+        >
           <span className="text-[10px] text-slate-600 font-medium">
             Estimated cost
           </span>
           <span
             className="text-xs font-bold tabular-nums"
-            style={{ color: cost > 0 ? cat.color : "#475569" }}
+            style={{ color: cost > 0 ? cat.color : "var(--app-text-muted, #475569)" }}
           >
             {cost > 0 ? formatCurrency(cost) : "—"}
           </span>
@@ -181,7 +183,10 @@ function EmptyState({ onAdd }) {
       animate={{ opacity: 1 }}
       className="flex flex-col items-center justify-center gap-3 w-64 py-8"
     >
-      <div className="w-12 h-12 rounded-2xl bg-[#1C2030] flex items-center justify-center">
+      <div
+        className="w-12 h-12 rounded-2xl flex items-center justify-center"
+        style={{ background: "var(--app-border, #1C2030)" }}
+      >
         <Flag size={20} className="text-slate-600" />
       </div>
       <div className="flex flex-col items-center gap-1">
@@ -194,7 +199,8 @@ function EmptyState({ onAdd }) {
       </div>
       <button
         onClick={onAdd}
-        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[#1C2030] text-slate-300 hover:bg-[#252B40] transition-all"
+        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 transition-all hover:text-slate-100"
+        style={{ background: "var(--app-border, #1C2030)" }}
       >
         <Plus size={12} /> Add first milestone
       </button>

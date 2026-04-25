@@ -388,7 +388,7 @@ export default function Timeline() {
   // ── Render ─────────────────────────────────────────────────────────────────
 
   return (
-    <div className="bg-[#0A0C14] rounded-2xl border border-[#1C2030] overflow-hidden flex flex-col select-none">
+    <div className="rounded-2xl border border-[#1C2030] overflow-hidden flex flex-col select-none" style={{ background: "var(--app-card-bg, #0A0C14)" }}>
       {/* ── HEADER ── */}
       <div className="flex items-center justify-between gap-4 px-6 pt-5 pb-3 border-b border-[#1C2030] flex-shrink-0 flex-wrap gap-y-3">
         <div className="flex flex-col gap-0.5 min-w-0">
@@ -412,22 +412,24 @@ export default function Timeline() {
           {/* Add milestone */}
           <button
             onClick={handleAddMilestone}
-            className="h-7 px-2.5 rounded-lg text-xs font-semibold bg-[#080A10] border border-[#1C2030] text-slate-400 hover:text-slate-100 hover:border-[#2A3050] transition-all inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            className="h-7 px-2.5 rounded-lg text-xs font-semibold border border-[#1C2030] text-slate-400 hover:text-slate-100 hover:border-[#2A3050] transition-all inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            style={{ background: "var(--app-card-bg-3, #080A10)" }}
           >
             <Plus size={12} /> Milestone
           </button>
 
           {/* Zoom */}
-          <div className="flex items-center gap-0.5 p-0.5 bg-[#080A10] border border-[#1C2030] rounded-lg">
+          <div className="flex items-center gap-0.5 p-0.5 border border-[#1C2030] rounded-lg" style={{ background: "var(--app-card-bg-3, #080A10)" }}>
             {ZOOM_PRESETS.map((z) => (
               <button
                 key={z.key}
                 onClick={() => handleZoom(z.key)}
                 className={`h-6 px-2.5 rounded-md text-xs font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                   zoomKey === z.key
-                    ? "bg-[#1C2030] text-slate-100 shadow-sm"
+                    ? "text-slate-100 shadow-sm"
                     : "text-slate-500 hover:text-slate-300"
                 }`}
+                style={zoomKey === z.key ? { background: "var(--app-border, #1C2030)" } : {}}
               >
                 {z.label}
               </button>
@@ -440,7 +442,7 @@ export default function Timeline() {
       <div
         ref={outerRef}
         className="relative overflow-hidden flex-shrink-0 cursor-crosshair"
-        style={{ height: VP_H, background: "#070910" }}
+        style={{ height: VP_H, background: "var(--app-chart-bg, #070910)" }}
         onClick={handleViewportClick}
         onPointerMove={handleOuterPM}
         onPointerUp={handleOuterPU}
@@ -503,7 +505,7 @@ export default function Timeline() {
                 x2={LOG_W}
                 y1={CHART_TOP_PAD + CHART_USABLE_H * t}
                 y2={CHART_TOP_PAD + CHART_USABLE_H * t}
-                stroke="#1A1F2E"
+                stroke="var(--app-border-2, #1A1F2E)"
                 strokeWidth={1}
                 vectorEffect="non-scaling-stroke"
               />
@@ -611,7 +613,7 @@ export default function Timeline() {
           style={{
             top: CHART_H,
             height: AXIS_H,
-            borderTop: "1px solid #1A1F2E",
+            borderTop: "1px solid var(--app-border-2, #1A1F2E)",
           }}
         >
           {visibleAges.map((age) => {
@@ -741,11 +743,11 @@ export default function Timeline() {
                   top: 8,
                   width: 152,
                   zIndex: 20,
-                  background: "#0D0F1AEE",
-                  border: "1px solid #1C2030",
+                  background: "var(--app-card-bg, #0D0F1A)",
+                  border: "1px solid var(--app-border, #1C2030)",
                   borderRadius: 12,
                   padding: "10px 14px",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
                   backdropFilter: "blur(12px)",
                 }}
                 initial={{ opacity: 0, y: -6, scale: 0.92 }}
